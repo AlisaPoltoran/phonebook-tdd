@@ -6,7 +6,12 @@ public class PhoneBook {
     Map<String, String> phoneBook = new TreeMap<>();
 
     public int add(String name, String phoneNumber) {
-       return 0;
+        if (phoneBook.containsKey(name)) {
+            System.out.println("The contact " + name + " already exists");
+        } else {
+            phoneBook.put(name, phoneNumber);
+        }
+        return phoneBook.size();
     }
 }
 
