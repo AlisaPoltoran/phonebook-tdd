@@ -47,7 +47,17 @@ public class PhoneBookTest {
                 Arguments.of("Pasha", "+7(812)888-79-12",  1));
     }
 
+    @Test
+    public void testFindByNumber() {
+        sut.phoneBook.put("Pasha", "+7(812)888-79-12");
+        sut.phoneBook.put("Masha", "+7(812)888-78-11");
+        sut.phoneBook.put("Petya", "+7(812)888-77-66");
 
+        String result = sut.findByNumber("+7(812)888-79-12");
+        String expected = "Pasha";
+
+        assertEquals(result, expected);
+    }
 
 
 }
