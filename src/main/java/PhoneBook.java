@@ -29,5 +29,9 @@ public class PhoneBook {
             return "Unknown number";
         }
     }
+
+    public String findByName (String name) {
+        return null;
+    }
 }
 

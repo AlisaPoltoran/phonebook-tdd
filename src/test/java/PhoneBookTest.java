@@ -59,5 +59,17 @@ public class PhoneBookTest {
         assertEquals(result, expected);
     }
 
+    @Test
+    public void testFindByName() {
+        sut.phoneBook.put("Pasha", "+7(812)888-79-12");
+        sut.phoneBook.put("Masha", "+7(812)888-78-11");
+        sut.phoneBook.put("Petya", "+7(812)888-77-66");
+
+        String result = sut.findByName("Pasha");
+        String expected = "+7(812)888-79-12";
+
+        assertEquals(result, expected);
+    }
+
 
 }
