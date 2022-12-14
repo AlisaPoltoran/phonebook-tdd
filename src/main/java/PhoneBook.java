@@ -15,7 +15,19 @@ public class PhoneBook {
     }
 
     public String findByNumber (String number) {
-        return null;
+        if (phoneBook.containsValue(number)) {
+            String key = "";
+            for (String k : phoneBook.keySet()) {
+                if (phoneBook.get(k).equals(number) )  {
+                    key = k;
+                    break;
+                }
+            }
+            System.out.println(key + " --- " + phoneBook.get(key));
+            return key;
+        } else {
+            return "Unknown number";
+        }
     }
 }
 
