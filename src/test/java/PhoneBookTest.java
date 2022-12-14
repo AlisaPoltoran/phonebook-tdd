@@ -10,10 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PhoneBookTest {
 
-    PhoneBook sut = new PhoneBook();
+    PhoneBook sut;
 
     @BeforeEach
     public void init() {
+        sut = new PhoneBook();
         System.out.println("Test started");
     }
 
@@ -40,11 +41,12 @@ public class PhoneBookTest {
         int result = sut.phoneBook.size();
         assertEquals(expected, result);
     }
+
     @MethodSource("sourceForAdd")
     public static Stream<Arguments> sourceForAdd() {
         return Stream.of(Arguments.of("Petya", "+7(812)888-77-66", 2),
                 Arguments.of("Masha", "+7(812)888-78-11", 2),
-                Arguments.of("Pasha", "+7(812)888-79-12",  1));
+                Arguments.of("Pasha", "+7(812)888-79-12", 1));
     }
 
     @Test
@@ -69,6 +71,18 @@ public class PhoneBookTest {
         String expected = "+7(812)888-79-12";
 
         assertEquals(result, expected);
+    }
+
+    @Test
+    public void testPrintAllNames() {
+        sut.phoneBook.put("Alisa", "+7(812)888-79-12");
+        sut.phoneBook.put("Kolya", "+7(812)888-78-11");
+        sut.phoneBook.put("Boris", "+7(812)888-77-66");
+
+        String result = sut.printAllNames();
+        String expected = "[Alisa, Boris, Kolya]";
+
+        assertEquals(expected, result);
     }
 
 

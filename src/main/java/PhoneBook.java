@@ -33,5 +33,9 @@ public class PhoneBook {
     public String findByName (String name) {
         return phoneBook.getOrDefault(name, "Unknown name");
     }
+
+    public String printAllNames() {
+       return null;
+    }
 }
 
